@@ -32,6 +32,7 @@ module.exports = {
                 'alert-2': '#F9CC00',
                 'alert-3': '#FF0000',
                 'blue-1' : '#043A6C',
+                'grey-1' : '#C1BBEB',
             },
         },
     },
