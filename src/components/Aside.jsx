@@ -4,8 +4,8 @@ import { FiHome, FiSend, FiMap, FiGlobe, FiFile, FiUsers } from 'react-icons/fi'
 
 export default function Aside(onClick) {
     return (
-        <div className='fixed left-0 top-0 z-40 h-screen w-[321px] -translate-x-full font-poppins transition-transform sm:translate-x-0'>
-            <div className='h-full items-center overflow-y-auto bg-blue-1 py-4  text-center dark:bg-gray-800'>
+        <div className='h-[949px]  w-[321px]  font-poppins '>
+            <div className='h-full items-center bg-blue-1 py-4  text-center'>
                 <div className='mt-[34px] items-center  '>
                     <img className='w-[91px] h-[42px] ml-[116px] ' src={`./images/flyid_logo.svg`}  alt="FLY ID Logo" />
                     <span className='self-center whitespace-nowrap mt-[1.8px] text-[36px] font-bold text-neutral-1'>Admin C1</span>

@@ -5,7 +5,9 @@
 // import ButtonAdd from "@/components/ButtonAdd"
 // import TableUser from "@/components/TableUser"
 // import TableFlight from "@/components/TableFlight"
-import User from "@/Pages/User"
+// import TopComponent from "@/components/TopComponent"
+// import User from "@/Pages/User"
+import Transaction from "@/Pages/Transaction"
 
 export default function Home() {
   return (
@@ -16,7 +18,10 @@ export default function Home() {
       {/* <ButtonAdd/> */}
       {/* <TableUser/> */}
       {/* <TableFlight/> */}
-      <User/>
+      {/* <User/> */}
+      {/* <TopComponent/> */}
+      <Transaction/>
+
     </main>
   )
 }
