@@ -1,18 +1,43 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ['./src/pages/**/*.{js,ts,jsx,tsx,mdx}', './src/components/**/*.{js,ts,jsx,tsx,mdx}', './src/app/**/*.{js,ts,jsx,tsx,mdx}'],
+    content: [
+        "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/examples/**/*.{js,ts,jsx,tsx,mdx}",
+        "./node_modules/flowbite/**/*.js",
+        "./src/**/*.{html,js}",
+        "./node_modules/tw-elements/dist/js/**/*.js",
+        "./pages/**/*.{ts,tsx}",
+        "./public/**/*.html",
+    ],
     theme: {
         extend: {
             fontFamily: {
-                poppins: ['var(--font-poppins)'],
-                mono: ['var(--font-roboto-mono)'],
+                poppins: ["var(--font-poppins)"],
+                inter: ["var(--font-inter)"],
             },
             backgroundImage: {
-                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+                "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+                "gradient-conic":
+                    "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
             },
-            colors:{
-              'purple-1': '#E2D4F0',
+            fontSize: {
+                "body-1": ["10px", "14px"],
+                "body-2": ["10px", "20px"],
+                "body-3": ["12px", "18px"],
+                "body-4": ["12px", "20px"],
+                "body-5": ["14px", "18px"],
+                "body-6": ["14px", "20px"],
+                "title-1": ["16px", "20px"],
+                "title-2": ["16px", "24px"],
+                "title-3": ["18px", "26px"],
+                "head-1": ["20px", "30px"],
+                "head-2": ["24px", "36px"],
+                "head-3": ["36px", "54px"],
+            },
+            colors: {
+               'purple-1': '#E2D4F0',
                 'purple-2': '#D0B7E6',
                 'purple-3': '#A06ECE',
                 'purple-4': '#7126B5',
@@ -32,8 +57,24 @@ module.exports = {
                 'alert-2': '#F9CC00',
                 'alert-3': '#FF0000',
                 'blue-1' : '#043A6C',
+                'grey-1' : '#C1BBEB',
+                'grey-2'  : '#F3F4FF',
+            },
+            boxShadow: {
+                high: "0px 0px 10px rgba(0, 0, 0, 0.15)",
+                low: "0px 0px 4px rgba(0, 0, 0, 0.15)",
+            },
+            borderRadius: {
+                "rad-1": "4px",
+                "rad-2": "8px",
+                "rad-3": "12px",
+                "rad-4": "16px",
             },
         },
     },
-    plugins: [],
+    plugins: [
+        // require("daisyui"),
+        require('flowbite/plugin'),
+        // require("tw-elements/dist/plugin.cjs"),
+    ],
 };
