@@ -19,7 +19,7 @@ export default function Home() {
     return (
         <main className='h-[950px] w-full bg-grey-2'>
             {/* <User /> */}
-            {/* <Transaction /> */}
+            <Transaction />
 
             {/* <Flight /> */}
             {/* <FlightAdd /> */}
@@ -29,7 +29,7 @@ export default function Home() {
             {/* <AirlineUpdate /> */}
             {/* <Airline /> */}
 
-            <Airport />
+            {/* <Airport /> */}
             {/* <AirportAdd /> */}
             {/* <AirportUpdate /> */}
         </main>
