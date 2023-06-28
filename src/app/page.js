@@ -1,4 +1,4 @@
-
+'use client';
 
 import Airline from '@/pages/Airline';
 import AirlineAdd from '@/pages/AirlineAdd';
@@ -15,12 +15,11 @@ import FlightUpdate from '@/pages/FlightUpdate';
 import User from '@/pages/User';
 import Transaction from '@/pages/Transaction';
 
-
 export default function Home() {
     return (
-        <main className='bg-grey-2 w-full h-[950px]'>
+        <main className='h-[950px] w-full bg-grey-2'>
             {/* <User /> */}
-            <Transaction />
+            {/* <Transaction /> */}
 
             {/* <Flight /> */}
             {/* <FlightAdd /> */}
@@ -30,7 +29,7 @@ export default function Home() {
             {/* <AirlineUpdate /> */}
             {/* <Airline /> */}
 
-            {/* <Airport /> */}
+            <Airport />
             {/* <AirportAdd /> */}
             {/* <AirportUpdate /> */}
         </main>

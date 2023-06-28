@@ -1,10 +1,13 @@
 'use client';
 
+//core
+import { useState } from 'react';
 import Image from 'next/image';
+
+//components
 import TableTransaction from '@/components/TableTransaction';
 import Aside from '@/components/Aside';
 import TopComponent from '@/components/TopComponent';
-import { useState } from 'react';
 
 export default function Transaction() {
     return (
@@ -32,7 +35,9 @@ export default function Transaction() {
                             <div className='flex'>
                                 <h1 className=' text-[21px] font-bold text-blue-1 '>Data Transaction</h1>
                             </div>
-                            <div className='mt-[24px] '><TableTransaction /></div>
+                            <div className='mt-[24px] '>
+                                <TableTransaction />
+                            </div>
                         </div>
                     </div>
                 </div>
