@@ -29,10 +29,10 @@ export default function Flight() {
                         </div>
                         {/* TABLE */}
                         <div className='ml-[351px] mt-[120px] '>
-                            <div className='flex'>
-                                <img className='' src={`./images/back.svg`} alt='' />
-                                <h1 className='ml-[12px] text-[21px] font-bold text-blue-1 '>Data Flight</h1>
-                                <div className='ml-[670px] '><ButtonAdd/></div>
+                            <div className='flex items-center'>
+                                {/* <img className='' src={`./images/back.svg`} alt='' /> */}
+                                <h1 className=' text-[21px] font-bold text-blue-1 '>Data Flight</h1>
+                                <div className='ml-[680px] '><ButtonAdd/></div>
                             </div>
                             <div className='mt-[24px]'>
                                 <TableFlight />

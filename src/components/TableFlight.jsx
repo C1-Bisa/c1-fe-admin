@@ -1,5 +1,7 @@
 'use client';
 
+import Image from "next/image";
+
 export default function TableFlight() {
     return (
         <nav className='w-[920px] overflow-x-auto border-b border-gray-200 bg-white shadow-md sm:rounded-lg'>
@@ -13,13 +15,13 @@ export default function TableFlight() {
                                         No
                                     </th>
                                     <th scope='col' className='px-[27px] py-4'>
-                                        Airline ID
+                                        Airline
                                     </th>
                                     <th scope='col' className='px-[27px] py-4'>
-                                        Airport ID From
+                                        Airport From
                                     </th>
                                     <th scope='col' className='px-[27px] py-4'>
-                                        Airport ID To
+                                        Airport To
                                     </th>
                                     <th scope='col' className='px-[27px] py-4 '>
                                         Arrival <br />
@@ -67,17 +69,17 @@ export default function TableFlight() {
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr className='border-b bg-gray-100 text-center text-[14px] font-normal text-black '>
+                                <tr className='border-b bg-white text-center text-[14px] font-normal text-black '>
                                     <td className='whitespace-nowrap px-[27px] py-4'>01</td>
-                                    <td className='whitespace-nowrap px-[27px] py-4'>5</td>
-                                    <td className='whitespace-nowrap px-[27px] py-4'>1</td>
-                                    <td className='whitespace-nowrap px-[27px] py-4'>6</td>
+                                    <td className='whitespace-nowrap px-[27px] py-4'>Super Air Jet</td>
+                                    <td className='whitespace-nowrap px-[27px] py-4'>CGK</td>
+                                    <td className='whitespace-nowrap px-[27px] py-4'>SRG</td>
                                     <td className='whitespace-nowrap px-[27px] py-4'>2023-06-23</td>
                                     <td className='whitespace-nowrap px-[27px] py-4'>10.00</td>
                                     <td className='whitespace-nowrap px-[27px] py-4'>2023-06-24</td>
                                     <td className='whitespace-nowrap px-[27px] py-4'>10.00</td>
                                     <td className='whitespace-nowrap px-[27px] py-4'>Jakarta</td>
-                                    <td className='whitespace-nowrap px-[27px] py-4'>Bali</td>
+                                    <td className='whitespace-nowrap px-[27px] py-4'>Semarang</td>
                                     <td className='whitespace-nowrap px-[27px] py-4'>3</td>
                                     <td className='whitespace-nowrap px-[27px] py-4'>Rp2.000.000</td>
                                     <td className='whitespace-nowrap px-[27px] py-4'>Economy</td>
@@ -86,16 +88,20 @@ export default function TableFlight() {
                                     </td>
                                     <td className='whitespace-nowrap px-[27px] py-4'>2023-05-06</td>
                                     <td className='whitespace-nowrap px-[27px] py-4'>2023-05-06</td>
-                                    <td className='justify-center whitespace-nowrap px-[50px] py-4 '>
-                                        <div className='item-center flex w-[24px] justify-center space-x-[12px] whitespace-nowrap'>
-                                            <img
+                                    <td className='justify-center whitespace-nowrap px-[27px] py-4 '>
+                                        <div className=' flex w-[24px] space-x-[12px] whitespace-nowrap'>
+                                            <Image
+                                                width={24}
+                                                height={24}
                                                 className='cursor-pointer hover:scale-110 hover:text-blue-1 '
-                                                src={`./images/edit.svg`}
+                                                src={`./images/Pencil.svg`}
                                                 alt=''
                                             />
-                                            <img
+                                            <Image
+                                                width={24}
+                                                height={24}
                                                 className='cursor-pointer hover:scale-110 hover:text-blue-1 '
-                                                src={`./images/delete.svg`}
+                                                src={`./images/trash.svg`}
                                                 alt=''
                                             />
                                         </div>

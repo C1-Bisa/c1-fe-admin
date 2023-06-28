@@ -1,15 +1,14 @@
 'use client';
 import Image from 'next/image';
-import FormAirlineAdd from '@/components/FormAirlineAdd';
-
+import FormFlightUpdate from '@/components/FormFlightUpdate';
 import Aside from '@/components/Aside';
 import TopComponent from '@/components/TopComponent';
 import { useState } from 'react';
 
 
-export default function AirlineAdd() {
+export default function FlightUpdate() {
     return (
-        <section className='h-full w-full bg-grey-2  '>
+        <section className='h-[950px] w-[1440px] bg-grey-2  '>
             <nav className=''>
                 <div className='flex '>
                     {/* SIDEBAR */}
@@ -21,7 +20,7 @@ export default function AirlineAdd() {
                         <div className='ml-[361px] mt-[47px]'>
                             <div>
                                 <div className='flex'>
-                                    <h1 className=' text-[32px] font-bold text-blue-1 w-[105px]'>Airline</h1>
+                                    <h1 className=' text-[32px] font-bold text-blue-1 w-[105px]'>Flight</h1>
                                     <div className='ml-[262px]'>
                                         <TopComponent />
                                     </div>
@@ -29,17 +28,15 @@ export default function AirlineAdd() {
                             </div>
                         </div>
                         {/* FORM */}
-                        <div className='ml-[351px] mt-[77px]  '>
+                        <div className='ml-[351px] mt-[77px] '>
                             <div className='flex'>
-                                <img className='cursor-pointer' src={`./images/back.svg`} alt='' />
-                                <h1 className='ml-[12px] text-[21px] font-bold text-blue-1 '>New Airline</h1>
+                                <img className=' cursor-pointer' src={`./images/back.svg`} alt='' />
+                                <h1 className='ml-[12px] text-[21px] font-bold text-blue-1 '>Update Flight</h1>
                                 <div className='ml-[670px] '></div>
                             </div>
                             <div className='mt-[24px]'>
-                                <FormAirlineAdd />
-                                {/* <div className='ml-[800px] mt-[95px] '>
-                                    <ButtonSimpan />
-                                </div> */}
+                                <FormFlightUpdate />
+                               
                             </div>
                         </div>
                     </div>

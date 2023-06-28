@@ -1,9 +1,10 @@
 'use client';
+
 import Image from 'next/image';
 import { FiHome, FiSend, FiMap, FiGlobe, FiFile, FiUsers } from 'react-icons/fi';
 import ButtonSimpan from '@/components/ButtonSimpan';
 
-export default function FormFlight(onClick) {
+export default function FormFlightUpdate(onClick) {
     return (
         <div className='h-[700px]  w-[982px] bg-white  font-poppins'>
             <div className='h-[48px] w-[982px] rounded-t-[20px] bg-blue-1 pl-6 pt-2'>
@@ -14,37 +15,37 @@ export default function FormFlight(onClick) {
                     <div className=''>
                         <div className='mb-[44px] h-[42px] w-[408px]'>
                             <label htmlFor='airlineID' className='mb-[6px] text-[16px] font-bold text-blue-1 '>
-                                Airline ID
+                                Airline
                             </label>
                             <input
                                 type='airlineID'
                                 id='airlineID'
                                 className='mt-[4px] w-full rounded-[5px] border border-gray-300 bg-gray-50  p-2.5 text-gray-900 sm:text-sm '
-                                placeholder='5 (Tulis dalam angka)'
+                                placeholder='Super Air Jet'
                                 required=''
                             />
                         </div>
                         <div className='mb-[44px] h-[42px] w-[408px] '>
                             <label htmlFor='AirportIDFrom' className='mb-[6px] text-[16px] font-bold text-blue-1 '>
-                                Airport ID From
+                                Airport From
                             </label>
                             <input
                                 type='AirportIDFrom'
                                 id='AirportIDFrom'
                                 className='mt-[4px] w-full rounded-[5px] border border-gray-300 bg-gray-50  p-2.5 text-gray-900 sm:text-sm'
-                                placeholder='2'
+                                placeholder='CGK'
                                 required=''
                             />
                         </div>
                         <div className='mb-[44px] h-[42px] w-[408px]'>
                             <label htmlFor='AirportIDTo' className='mb-[6px] text-[16px] font-bold text-blue-1 '>
-                                Airport ID To
+                                Airport To
                             </label>
                             <input
                                 type='AirportIDTo'
                                 id='AirportIDTo'
                                 className='mt-[4px] w-full rounded-[5px] border border-gray-300 bg-gray-50  p-2.5 text-gray-900 sm:text-sm'
-                                placeholder='3'
+                                placeholder='SRG'
                                 required=''
                             />
                         </div>
@@ -56,7 +57,7 @@ export default function FormFlight(onClick) {
                                 type='DerpartureDate'
                                 id='DerpartureDate'
                                 className='mt-[4px] w-full rounded-[5px] border border-gray-300 bg-gray-50 p-2.5 text-gray-900 sm:text-sm'
-                                placeholder='Superjet Air Jet'
+                                placeholder='Super Air Jet'
                                 required=''
                             />
                         </div>
@@ -122,7 +123,7 @@ export default function FormFlight(onClick) {
                                 type='To'
                                 id='To'
                                 className='mt-[4px] w-full rounded-[5px] border border-gray-300 bg-gray-50  p-2.5 text-gray-900 sm:text-sm '
-                                placeholder='Bali'
+                                placeholder='Semarang'
                                 required=''
                             />
                         </div>
@@ -173,7 +174,7 @@ export default function FormFlight(onClick) {
                                 className='mt-[4px] block h-[70px] w-full rounded-lg border border-gray-300 p-2.5 text-sm text-gray-900 '
                                 placeholder=''></textarea>
                         </div>
-                        <div className='mt- ml-[280px]'>
+                        <div className='ml-[280px] mt-[100px]'>
                             <ButtonSimpan />
                         </div>
                     </div>

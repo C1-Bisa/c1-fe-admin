@@ -1,11 +1,10 @@
 'use client';
 import Image from 'next/image';
-import FormFlight from '@/components/FormFlight';
+import FormFlightAdd from '@/components/FormFlightAdd';
 import Aside from '@/components/Aside';
 import TopComponent from '@/components/TopComponent';
 import { useState } from 'react';
-import ButtonSimpan from '@/components/ButtonSimpan';
-import ButtonAdd from '@/components/ButtonAdd';
+
 
 export default function FlightAdd() {
     return (
@@ -32,14 +31,12 @@ export default function FlightAdd() {
                         <div className='ml-[351px] mt-[77px] '>
                             <div className='flex'>
                                 <img className=' cursor-pointer' src={`./images/back.svg`} alt='' />
-                                <h1 className='ml-[12px] text-[21px] font-bold text-blue-1 '>Data Flight Tambah</h1>
+                                <h1 className='ml-[12px] text-[21px] font-bold text-blue-1 '>New Flight</h1>
                                 <div className='ml-[670px] '></div>
                             </div>
                             <div className='mt-[24px]'>
-                                <FormFlight />
-                                {/* <div className='ml-[800px] mt-[95px] '>
-                                    <ButtonSimpan />
-                                </div> */}
+                                <FormFlightAdd />
+                               
                             </div>
                         </div>
                     </div>

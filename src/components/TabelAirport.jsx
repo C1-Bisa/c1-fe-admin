@@ -3,7 +3,7 @@
 import { FiTrash, FiEdit3 } from 'react-icons/fi';
 import Image from 'next/image';
 
-export default function TableAirline() {
+export default function TableAirport() {
     return (
         <nav className='flex w-[920px]  border-b border-gray-200 bg-white shadow-md sm:rounded-lg'>
             <div className=''>
@@ -12,16 +12,19 @@ export default function TableAirline() {
                         <table className=''>
                             <thead className='border-b bg-white'>
                                 <tr className='text-center text-[14px] font-bold text-blue-1 '>
-                                    <th scope='col' className='ml-[76px] py-4'>
+                                    <th scope='col' className='px-[30px]'>
                                         No
                                     </th>
-                                    <th scope='col' className='ml-[93px] px-[93px] py-4'>
-                                        Kode Airline
+                                    <th scope='col' className='px-[40px] py-4'>
+                                        Kode Airport
                                     </th>
-                                    <th scope='col' className='px-[87px] py-4'>
-                                        Name Airline
+                                    <th scope='col' className='px-[110px] py-4'>
+                                        Name Airport
                                     </th>
-                                    <th scope='col' className='pl-[141px] py-4'>
+                                    <th scope='col' className='px-[30px] py-4'>
+                                        Location
+                                    </th>
+                                    <th scope='col' className='pl-[70px] py-4'>
                                         Action
                                     </th>
                                 </tr>
@@ -29,9 +32,10 @@ export default function TableAirline() {
                             <tbody>
                                 <tr className='border-b text-center text-[14px] font-normal text-black '>
                                     <td className='whitespace-nowrap px-6 py-4'>01</td>
-                                    <td className='whitespace-nowrap px-6 py-4'>SJA</td>
-                                    <td className='whitespace-nowrap px-6 py-4'>Super Jet Airline</td>
-                                    <td className='items-center whitespace-nowrap pl-[141px] py-4 '>
+                                    <td className='whitespace-nowrap px-6 py-4'>CGK</td>
+                                    <td className='whitespace-nowrap px-6 py-4'>Soekarno Hatta</td>
+                                    <td className='whitespace-nowrap px-6 py-4'>Jakarta</td>
+                                    <td className='items-center whitespace-nowrap py-4 pl-[70px] '>
                                         <div className=' flex w-[24px] space-x-[12px] whitespace-nowrap'>
                                             <Image width={24} height={24}
                                                 className='cursor-pointer hover:scale-110 hover:text-blue-1 '
