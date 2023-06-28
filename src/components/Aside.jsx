@@ -4,6 +4,7 @@ import { FiHome, FiSend, FiMap, FiGlobe, FiFile, FiUsers } from 'react-icons/fi'
 
 export default function Aside(onClick) {
     return (
+        
         <div className='fixed left-0 top-0 z-40 h-screen w-[321px] -translate-x-full font-poppins transition-transform sm:translate-x-0'>
             <div className='h-full items-center overflow-y-auto bg-blue-1 py-4  text-center dark:bg-gray-800'>
                 <div className='mt-[34px] items-center  '>

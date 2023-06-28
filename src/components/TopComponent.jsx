@@ -9,10 +9,9 @@ import Box from '../../public/images/codesandbox.svg';
 export default function () {
     return (
         <main>
-            <div className='flex mt-[47px]'>
-
+            <div className='flex items-center'>
                 {/* Search */}
-                <form className='w-[350px] items-center justify-center '>
+                <form className='w-[350px]  '>
                     <label htmlFor='default-search' className='sr-only mb-2 text-sm font-medium text-gray-900 dark:text-white'>
                         Search
                     </label>
@@ -36,12 +35,17 @@ export default function () {
                 </form>
 
                 {/* Notification */}
-                <div className='ml-[10px] flex h-[60px] w-[60px] rounded-full bg-white p-[14px]'>
-                    <Image className='' src={Notif} />
-                </div>
-                <div className='ml-[10px] flex h-[60px] w-[60px] rounded-full bg-white p-[14px]'>
-                    <Image className='' src={Setting} />
-                </div>
+                <button type='button'>
+                    <div className='ml-[10px] flex h-[60px] w-[60px] rounded-full bg-white p-[14px]'>
+                        <Image className='' src={Notif} />
+                    </div>
+                </button>
+                {/* Setting */}
+                <button type='button'>
+                    <div className='ml-[10px] flex h-[60px] w-[60px] rounded-full bg-white p-[14px]'>
+                        <Image className='' src={Setting} />
+                    </div>
+                </button>
 
                 {/* Detail User */}
                 <div className='flex h-[60px] w-[170px]'>
