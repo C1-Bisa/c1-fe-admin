@@ -11,13 +11,16 @@ import AirportUpdate from '@/pages/AirportUpdate';
 import Flight from '@/pages/Flight';
 import FlightAdd from '@/pages/FlightAdd';
 import FlightUpdate from '@/pages/FlightUpdate';
+
 import User from '@/pages/User';
+import Transaction from '@/pages/Transaction';
 
 
 export default function Home() {
     return (
         <main className='bg-grey-2 w-full h-[950px]'>
-            <User />
+            {/* <User /> */}
+            <Transaction />
 
             {/* <Flight /> */}
             {/* <FlightAdd /> */}
