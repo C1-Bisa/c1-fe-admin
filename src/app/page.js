@@ -9,16 +9,22 @@ import AddAirline from "@/pages/AddAirline"
 import UpdateAirline from "@/pages/UpdateAirline"
 
 export default function Home() {
-  return (
-    <main>
-      {/* <Aside/> */}
-      {/* <Navbar/> */}
-      {/* <SearchBar/> */}
-      <Airline/>
-      {/* <ButtonAdd/> */}
-      {/* <TableAirline/> */}
-      {/* <AddAirline/> */}
-      {/* <UpdateAirline/> */}
-    </main>
-  )
+    return (
+        <main className='h-[950px] w-full bg-grey-2'>
+            {/* <User /> */}
+            {/* <Transaction /> */}
+
+            {/* <Flight /> */}
+            {/* <FlightAdd /> */}
+            {/* <FlightUpdate /> */}
+
+            {/* <AirlineAdd /> */}
+            {/* <AirlineUpdate /> */}
+            <Airline />
+
+            {/* <Airport /> */}
+            {/* <AirportAdd /> */}
+            {/* <AirportUpdate /> */}
+        </main>
+    );
 }

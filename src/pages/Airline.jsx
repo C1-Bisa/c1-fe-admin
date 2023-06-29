@@ -1,63 +1,86 @@
+
 'use client';
 import Image from 'next/image';
-import TableAirline from '@/components/TableAirline';
+import { useState, useEffect} from 'react';
+
+import axios from 'axios';
+
+import TableAirline from '@/components/TabelAirline';
 import Aside from '@/components/Aside';
 import TopComponent from '@/components/TopComponent';
 import ButtonAdd from '@/components/ButtonAdd';
-import { useState } from 'react';
+import ButtonBack from '../../public/images/back.svg';
 
-export default function Airpot() {
+
+
+export default function Airline() {
+
+    const [fetchAirlines, setFetchAirlines] = useState(true);
+    const [airlines , SetAirlines] = useState([]);
+
+    useEffect (() => {
+        if (fetchAirlines) {
+            const getAirlines = async () => {
+                try {
+                    const URL_AIRLINE = 'https://kel1airplaneapi-production.up.railway.app/api/v1/airline'
+
+                    const response = await axios.get(URL_AIRLINE)
+
+                    console.log('RESPONSE AIRLINE', response);
+                    console.log('RESPONSE DATA AIRLINE', response.data);
+                    console.log(' DATA AIRLINE', response.data.data);
+                    console.log(' AIRLINE', response.data.data.airline);
+                    const airlineData = response.data.data.airline;
+                    SetAirlines(airlineData);
+                } catch (error) {
+                    console.log('ERROR AIRLINE', error);
+                }
+            };
+            getAirlines();
+        }
+        setFetchAirlines(false);
+    }, [fetchAirlines]);
+
+    console.log('====================================');
+    console.log('AIRLINE', airlines);
+    console.log('====================================');
+
     return (
-        // <section className='h-full w-full bg-white '>
-        //     <nav className='bg-white'>
-        //         {/* ASIDE */}
-        //         <div className=" ">
-        //             <Aside/>
-        //         </div>
-        //         <div>
-        //             <TopComponnent/>
-        //         </div>
-        //         {/* TABLE */}
-        //         <div className="mt-[237px] ml-[361px] ">
-        //         <TableUser/>
-        //         </div>
-        //     </nav>
-        // </section>
-
-        <section className='h-[950px] w-full bg-grey-2 '>
-        <nav className=''>
-            <div className="flex ">
-                {/* SIDEBAR */}
-                <div className=" ">
-                    <Aside/>
-                </div>
-                <div className="">
-                {/* NAVBAR */}
-                <div className="flex">
-                    <h1 className='text-[32px] mt-[50px] ml-[40px] font-bold text-blue-1 '>Airline</h1>
-                <div className="pt-[47px] ml-[278px]  ">
-                <TopComponent/>
-                </div>
-                </div>
-                {/* TABLE */}
-                <div className="mt-[77px] ">
-                    <div className="flex">
-                        <Image src={`./images/back.svg`} className=' cursor-pointer' alt="" width={24} height={24}/>
-                        <h1 className='ml-[12px] text-blue-1 font-bold text-[21px] ' >Data Airline</h1>
-                        <div className="ml-[670px] flex ">
-                        <ButtonAdd/>
+        <section className='h-[950px] w-[1440px] bg-grey-2  '>
+            <nav className=''>
+                <div className='flex '>
+                    {/* SIDEBAR */}
+                    <div className=' '>
+                        <Aside />
+                    </div>
+                    <div className=''>
+                        {/* NAVBAR */}
+                        <div className='ml-[361px] mt-[47px]'>
+                            <div>
+                                <div className='flex'>
+                                    <h1 className=' text-[32px] font-bold text-blue-1 '>Airline</h1>
+                                    <div className='ml-[262px]'>
+                                        <TopComponent />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {/* TABLE */}
+                        <div className='ml-[351px] mt-[120px] '>
+                            <div className='flex items-center'>
+                                {/* <img className='' src={`./images/back.svg`} alt='' /> */}
+                                <h1 className='ml-[px] text-[21px] font-bold text-blue-1 '>Data Airline</h1>
+                                <div className='ml-[680px]' alt=''>
+                                    <ButtonAdd />
+                                </div>
+                            </div>
+                            <div className='mt-[24px]'>
+                                <TableAirline />
+                            </div>
                         </div>
                     </div>
-                    <div className="mt-[24px] flex ">
-                        <TableAirline/>
-                    </div>
                 </div>
-                </div>
-            </div>
-
-        </nav>
-
-
-    </section>
+            </nav>
+        </section>
     );
 }
