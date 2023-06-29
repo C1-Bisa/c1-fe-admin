@@ -7,6 +7,7 @@ import ButtonAdd from "@/components/ButtonAdd"
 import TableAirline from "@/components/TableAirline"
 import AddAirline from "@/pages/AddAirline"
 import UpdateAirline from "@/pages/UpdateAirline"
+import Airport from "@/pages/Airport"
 
 export default function Home() {
     return (
@@ -20,9 +21,9 @@ export default function Home() {
 
             {/* <AirlineAdd /> */}
             {/* <AirlineUpdate /> */}
-            <Airline />
+            {/* <Airline /> */}
 
-            {/* <Airport /> */}
+            <Airport />
             {/* <AirportAdd /> */}
             {/* <AirportUpdate /> */}
         </main>

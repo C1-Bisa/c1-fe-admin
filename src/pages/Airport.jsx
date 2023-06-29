@@ -1,51 +1,69 @@
-
 'use client';
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
 
+//core
+import { useState, useEffect } from 'react';
+import Image from 'next/image';
+
+//third parties
 import axios from 'axios';
 
-import TableAirline from '@/components/TabelAirline';
+//components
+import TableAirport from '@/components/TabelAirport';
 import Aside from '@/components/Aside';
 import TopComponent from '@/components/TopComponent';
 import ButtonAdd from '@/components/ButtonAdd';
+// import ButtonBack from '../../public/images/back.svg';
 
-export default function Airline() {
-    const [fetchAirline, setFetchAirline] = useState(true);
-    const [airlines, setAirlines] = useState([]);
+export default function Airport() {
+    //state
+    const [fetchAirport, setFetchAirport] = useState(true);
+    const [airports, setAirports] = useState([]);
 
+    // const [fetchAirport, setFetchAirport] = useState(true);
+
+    // //setup
+    // useEffect(() => {
+    //     if (fetchAirport) {
+    //     }
+    //     setFetchAirport(false);
+    // }, [fetchAirport]);
+
+    //setup
     useEffect(() => {
-        if (fetchAirline) {
-            const getAirline = async () => {
+        if (fetchAirport) {
+            const getAirport = async () => {
                 try {
-                    const URL_AIRLINE = 'https://kel1airplaneapi-production.up.railway.app/api/v1/airline';
+                    const token =
+                        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJuYW1hIjoiYWRtaW4iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2ODc5NjA0NTYsImV4cCI6MTY4ODEzMzI1Nn0.v_ktm7kT1I5q_zMQXusG5jvLkW5e9IEz6bvQIb99DH4';
+                    const URL_AIRPORT = 'https://kel1airplaneapi-production.up.railway.app/api/v1/airport';
                     // misal  perlu token
                     // const response = await axios.get(URL_AIRPORT,{
                     //         headers: {
                     //             Authorization: `Bearer ${token}`,
                     //         },
                     //     });
+                    
+                    const response = await axios.get(URL_AIRPORT);
 
-                    const response = await axios.get(URL_AIRLINE);
-
-                    console.log('RESPONSE AIRLINE', response);
-                    console.log('RESPONSE DATA AIRLINE', response.data);
-                    console.log(' DATA AIRLINE', response.data.data);
-                    console.log(' AIRLINE', response.data.data.airline);
-                    const airlinesData = response.data.data.airline;
-                    setAirlines(airlinesData);
+                    console.log('RESPONSE AIRPORT', response);
+                    console.log('RESPONSE DATA AIRPORT', response.data);
+                    console.log(' DATA AIRPORT', response.data.data);
+                    console.log(' AIRPORTS', response.data.data.airport);
+                    const airportsData = response.data.data.airport;
+                    setAirports(airportsData);
                 } catch (error) {
                     console.log('ERROR AIRPORT', error);
                 }
             };
-            getAirline();
+            getAirport();
         }
-        setFetchAirline(false);
-    }, [fetchAirline]);
+        setFetchAirport(false);
+    }, [fetchAirport]);
 
     console.log('====================================');
-    console.log('AIRLINE', airlines);
+    console.log('AIRPORTR', airports);
     console.log('====================================');
+
     return (
         <section className='h-[950px] w-[1440px] bg-grey-2  '>
             <nav className=''>
@@ -59,7 +77,7 @@ export default function Airline() {
                         <div className='ml-[361px] mt-[47px]'>
                             <div>
                                 <div className='flex'>
-                                    <h1 className=' text-[32px] font-bold text-blue-1 '>Airline</h1>
+                                    <h1 className=' text-[32px] font-bold text-blue-1 '>Airport</h1>
                                     <div className='ml-[262px]'>
                                         <TopComponent />
                                     </div>
@@ -67,16 +85,16 @@ export default function Airline() {
                             </div>
                         </div>
                         {/* TABLE */}
-                        <div className='ml-[351px] mt-[120px] '>
+                        <div className='ml-[361px] mt-[120px] '>
                             <div className='flex items-center'>
                                 {/* <img className='' src={`./images/back.svg`} alt='' /> */}
-                                <h1 className='ml-[px] text-[21px] font-bold text-blue-1 '>Data Airline</h1>
-                                <div className='ml-[680px]' alt=''>
+                                <h1 className='ml-[px] text-[21px] font-bold text-blue-1 '>Data Airport</h1>
+                                <div className='ml-[670px]' alt=''>
                                     <ButtonAdd />
                                 </div>
                             </div>
                             <div className='mt-[24px]'>
-                                <TableAirline airlines={airlines}/>
+                                <TableAirport airports={airports} />
                             </div>
                         </div>
                     </div>
@@ -85,4 +103,3 @@ export default function Airline() {
         </section>
     );
 }
-
