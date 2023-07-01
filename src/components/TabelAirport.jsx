@@ -4,9 +4,9 @@ import { FiTrash, FiEdit3 } from 'react-icons/fi';
 import Image from 'next/image';
 
 //id, airport_code, airport_name, airport_location
-export default function TableAirport({ airports }) {
+export default function TableAirport({ airport, handleClickAirport }) {
     console.log('====================================');
-    console.log('INI DATA KOMPONEN BRE', airports);
+    console.log('INI DATA KOMPONEN BRE', airport);
     console.log('====================================');
     return (
         <nav className='flex w-[920px]  border-b border-gray-200 bg-white shadow-md sm:rounded-lg'>
@@ -59,8 +59,8 @@ export default function TableAirport({ airports }) {
                                     </td>
                                 </tr> */}
 
-                                {airports.length ? (
-                                    airports.map((airport, index) => {
+                                {airport.length ? (
+                                    airport.map((airport, index) => {
                                         return (
                                             <tr key={index} className='border-b text-center text-[14px] font-normal text-black '>
                                                 <td className='whitespace-nowrap px-6 py-4'>{index + 1}</td>
@@ -70,6 +70,7 @@ export default function TableAirport({ airports }) {
                                                 <td className='items-center whitespace-nowrap py-4 pl-[70px] '>
                                                     <div className=' flex w-[24px] space-x-[12px] whitespace-nowrap'>
                                                         <Image
+                                                        onClick={() => handleClickAirport(airport)}
                                                             width={24}
                                                             height={24}
                                                             className='cursor-pointer hover:scale-110 hover:text-blue-1 '

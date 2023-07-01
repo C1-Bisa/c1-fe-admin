@@ -48,7 +48,7 @@ export default function Airline() {
     console.log('====================================');
     return (
         <section className='h-[950px] w-[1440px] bg-grey-2  '>
-            <nav className=''>
+            <div className=''>
                 <div className='flex '>
                     {/* SIDEBAR */}
                     <div className=' '>
@@ -80,8 +80,11 @@ export default function Airline() {
                             </div>
                         </div>
                     </div>
+
+                    
+
                 </div>
-            </nav>
+            </div>
         </section>
     );
 }

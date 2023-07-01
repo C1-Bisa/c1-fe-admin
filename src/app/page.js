@@ -8,6 +8,7 @@ import TableAirline from "@/components/TableAirline"
 import AddAirline from "@/pages/AddAirline"
 import UpdateAirline from "@/pages/UpdateAirline"
 import Airport from "@/pages/Airport"
+import Flight from "@/pages/Flight"
 
 export default function Home() {
     return (
