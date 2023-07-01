@@ -21,13 +21,13 @@ export default function Home() {
             {/* <User /> */}
             {/* <Transaction /> */}
 
-            {/* <Flight /> */}
+            <Flight />
             {/* <FlightAdd /> */}
             {/* <FlightUpdate /> */}
 
             {/* <AirlineAdd /> */}
             {/* <AirlineUpdate /> */}
-            <Airline />
+            {/* <Airline /> */}
 
             {/* <Airport /> */}
             {/* <AirportAdd /> */}
