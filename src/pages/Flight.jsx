@@ -11,26 +11,33 @@ import TableFlight from '@/components/TableFlight';
 import ButtonAdd from '@/components/ButtonAdd';
 
 export default function Flight() {
+    //tambah state isMounted
+    const [isMounted, setIsMounted] = useState(false);
+
     const [fetchFlight, setFetchFlight] = useState(true);
     const [flight, setFlight] = useState([]);
     const [chooseFlight, setChooseFlight] = useState(null);
     const [openModal, setOpenModal] = useState(false);
     const [flightData, setFlightData] = useState({
         airline_izd: '',
-  airport_id_from: '',
-  airport_id_to: '',
-  departure_date: '',
-  departure_time: "",
-  arrival_date: "",
-  arrival_time: "",
-  from: "",
-  to: "",
-  price: 0,
-  flight_class: "",
-  description: ""
-    })
+        airport_id_from: '',
+        airport_id_to: '',
+        departure_date: '',
+        departure_time: '',
+        arrival_date: '',
+        arrival_time: '',
+        from: '',
+        to: '',
+        price: 0,
+        flight_class: '',
+        description: '',
+    });
 
-        const handleFlightData = (event) => {
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
+
+    const handleFlightData = (event) => {
         setFlightData({ ...flightData, [event.target.name]: event.target.value });
     };
 
@@ -39,29 +46,28 @@ export default function Flight() {
         console.log('DATA FLIGHT', data);
         console.log('====================================');
         setChooseFlight(data); // taro data ke local state
-        setOpenModal(true)
+        setOpenModal(true);
     };
 
-    const handleUpdateFlight = () =>{
-        const idFlight = chooseFlight.id
+    const handleUpdateFlight = () => {
+        const idFlight = chooseFlight.id;
 
-        const URL_UPDATE = `https://kel1airplaneapi-production.up.railway.app/api/v1/flight/updateflight/${idFlight}`
-
-    }
-//     {
-//   "airline_id": 2,
-//   "airport_id_from": 6,
-//   "airport_id_to": 1,
-//   "departure_date": "2023-07-07",
-//   "departure_time": "16:00",
-//   "arrival_date": "2023-07-07",
-//   "arrival_time": "18:00",
-//   "from": "Bali",
-//   "to": "Jakarta",
-//   "price": 3000000,
-//   "flight_class": "Bussiness",
-//   "description": "Baggage 20 kg Cabin baggage 7 kg In Flight Entertainment"
-// }
+        const URL_UPDATE = `https://kel1airplaneapi-production.up.railway.app/api/v1/flight/updateflight/${idFlight}`;
+    };
+    //     {
+    //   "airline_id": 2,
+    //   "airport_id_from": 6,
+    //   "airport_id_to": 1,
+    //   "departure_date": "2023-07-07",
+    //   "departure_time": "16:00",
+    //   "arrival_date": "2023-07-07",
+    //   "arrival_time": "18:00",
+    //   "from": "Bali",
+    //   "to": "Jakarta",
+    //   "price": 3000000,
+    //   "flight_class": "Bussiness",
+    //   "description": "Baggage 20 kg Cabin baggage 7 kg In Flight Entertainment"
+    // }
 
     useEffect(() => {
         if (fetchFlight) {
@@ -97,63 +103,166 @@ export default function Flight() {
     // console.log('FLIGHT', flight);
     // console.log('====================================');
 
+    // if (isMounted) {
+    //     return (
+    //         <section className='h-[4150px] w-full bg-grey-2  '>
+    //             <div className=''>
+    //                 <div className='flex '>
+    //                     {/* SIDEBAR */}
+    //                     <div className=''>
+    //                         <Aside />
+    //                     </div>
+    //                     <div className=''>
+    //                         {/* NAVBAR */}
+    //                         <div className='ml-[361px] mt-[47px]'>
+    //                             <div>
+    //                                 <div className='flex '>
+    //                                     <h1 className=' text-[32px] font-bold text-blue-1 '>Flight</h1>
+    //                                     <div className='ml-[262px]'>
+    //                                         <TopComponent />
+    //                                     </div>
+    //                                 </div>
+    //                             </div>
+    //                         </div>
+    //                         {/* TABLE */}
+    //                         <div className='ml-[351px] mt-[120px] '>
+    //                             <div className='flex items-center'>
+    //                                 <h1 className=' text-[21px] font-bold text-blue-1 '>Data Flight</h1>
+    //                                 <div className='ml-[835px] '>
+    //                                     <ButtonAdd />
+    //                                 </div>
+    //                             </div>
+    //                             <div className='mt-[24px]'>
+    //                                 <TableFlight flight={flight} handleClickFlight={handleClickFlight} />
+    //                             </div>
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //             </div>
 
+    //             {openModal && (
+    //                 <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-60'>
+    //                     <div className='h-[600px] w-[600px] bg-white'>
+    //                         <div>
+    //                             <label htmlFor=''>Nama Airpoty</label>
+    //                             <input type='text' />
+    //                         </div>
+    //                         <div>
+    //                             <label htmlFor=''>Nama Airline</label>
+    //                             <input type='text' value={chooseFlight.from} />
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //             )}
+    //         </section>
+    //     );
+    // }
 
+    // return (
+    //     <section className='h-[4150px] w-full bg-grey-2  '>
+    //         <div className=''>
+    //             <div className='flex '>
+    //                 {/* SIDEBAR */}
+    //                 <div className=''>
+    //                     <Aside />
+    //                 </div>
+    //                 <div className=''>
+    //                     {/* NAVBAR */}
+    //                     <div className='ml-[361px] mt-[47px]'>
+    //                         <div>
+    //                             <div className='flex '>
+    //                                 <h1 className=' text-[32px] font-bold text-blue-1 '>Flight</h1>
+    //                                 <div className='ml-[262px]'>
+    //                                     <TopComponent />
+    //                                 </div>
+    //                             </div>
+    //                         </div>
+    //                     </div>
+    //                     {/* TABLE */}
+    //                     <div className='ml-[351px] mt-[120px] '>
+    //                         <div className='flex items-center'>
+    //                             <h1 className=' text-[21px] font-bold text-blue-1 '>Data Flight</h1>
+    //                             <div className='ml-[835px] '>
+    //                                 <ButtonAdd />
+    //                             </div>
+    //                         </div>
+    //                         <div className='mt-[24px]'>
+    //                             <TableFlight flight={flight} handleClickFlight={handleClickFlight} />
+    //                         </div>
+    //                     </div>
+    //                 </div>
+    //             </div>
+    //         </div>
 
-    return (
-        <section className='h-[4150px] w-full bg-grey-2  '>
-            <div className=''>
-                <div className='flex '>
-                    {/* SIDEBAR */}
-                    <div className=''>
-                        <Aside />
-                    </div>
-                    <div className=''>
-                        {/* NAVBAR */}
-                        <div className='ml-[361px] mt-[47px]'>
-                            <div>
-                                <div className='flex '>
-                                    <h1 className=' text-[32px] font-bold text-blue-1 '>Flight</h1>
-                                    <div className='ml-[262px]'>
-                                        <TopComponent />
+    //         {openModal && (
+    //             <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-60'>
+    //                 <div className='h-[600px] w-[600px] bg-white'>
+    //                     <div>
+    //                         <label htmlFor=''>Nama Airpoty</label>
+    //                         <input type='text' />
+    //                     </div>
+    //                     <div>
+    //                         <label htmlFor=''>Nama Airline</label>
+    //                         <input type='text' value={chooseFlight.from} />
+    //                     </div>
+    //                 </div>
+    //             </div>
+    //         )}
+    //     </section>
+    // );
+
+    if (isMounted) {
+        return (
+            <section className='h-[4150px] w-full bg-grey-2  '>
+                <div className=''>
+                    <div className='flex '>
+                        {/* SIDEBAR */}
+                        <div className=''>
+                            <Aside />
+                        </div>
+                        <div className=''>
+                            {/* NAVBAR */}
+                            <div className='ml-[361px] mt-[47px]'>
+                                <div>
+                                    <div className='flex '>
+                                        <h1 className=' text-[32px] font-bold text-blue-1 '>Flight</h1>
+                                        <div className='ml-[262px]'>
+                                            <TopComponent />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        {/* TABLE */}
-                        <div className='ml-[351px] mt-[120px] '>
-                            <div className='flex items-center'>
-                                <h1 className=' text-[21px] font-bold text-blue-1 '>Data Flight</h1>
-                                <div className='ml-[835px] '>
-                                    <ButtonAdd />
+                            {/* TABLE */}
+                            <div className='ml-[351px] mt-[120px] '>
+                                <div className='flex items-center'>
+                                    <h1 className=' text-[21px] font-bold text-blue-1 '>Data Flight</h1>
+                                    <div className='ml-[835px] '>
+                                        <ButtonAdd />
+                                    </div>
+                                </div>
+                                <div className='mt-[24px]'>
+                                    <TableFlight flight={flight} handleClickFlight={handleClickFlight} />
                                 </div>
                             </div>
-                            <div className='mt-[24px]'>
-                                <TableFlight flight={flight} handleClickFlight={handleClickFlight} />
-                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-
-{openModal && 
- <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-60'>
-                <div className='h-[600px] w-[600px] bg-white'>
-                    <div>
-                        <label htmlFor=''>Nama Airpoty</label>
-                        <input type='text' />
+                {openModal && (
+                    <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-60'>
+                        <div className='h-[600px] w-[600px] bg-white'>
+                            <div>
+                                <label htmlFor=''>Nama Airpoty</label>
+                                <input type='text' />
+                            </div>
+                            <div>
+                                <label htmlFor=''>Nama Airline</label>
+                                <input type='text' value={chooseFlight.from} />
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <label htmlFor=''>Nama Airline</label>
-                        <input type='text' value={chooseFlight.from}/>
-                    </div>
-
-                    
-                </div>
-            </div>
-}
-           
-        </section>
-    );
+                )}
+            </section>
+        );
+    }
 }
