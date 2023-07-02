@@ -18,6 +18,7 @@ export default function Airline() {
         if (fetchAirlines) {
             const getAirlines = async () => {
                 try {
+                    
                     const URL_AIRLINE = 'https://kel1airplaneapi-production.up.railway.app/api/v1/airline';
 
                     const response = await axios.get(URL_AIRLINE);

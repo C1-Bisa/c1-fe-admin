@@ -25,13 +25,15 @@ export default function Home() {
             {/* <FlightAdd /> */}
             {/* <FlightUpdate /> */}
 
-            {/* <AirlineAdd /> */}
+            {/* <Airline /> */}
+            <AirlineAdd />
             {/* <AirlineUpdate /> */}
-            <Airline />
 
             {/* <Airport /> */}
             {/* <AirportAdd /> */}
             {/* <AirportUpdate /> */}
+
+            
         </main>
     );
 }

@@ -1,7 +1,9 @@
 'use client';
 
 import Image from 'next/image';
-import { FiHome, FiSend, FiMap, FiGlobe, FiFile, FiUsers } from 'react-icons/fi';
+
+import Datepicker from 'flowbite-datepicker/Datepicker';
+import DateRangePicker from 'flowbite-datepicker/DateRangePicker';
 import ButtonSubmit from './ButtonSubmit';
 
 export default function FormFlightAdd(onClick) {
@@ -10,6 +12,7 @@ export default function FormFlightAdd(onClick) {
             <div className='h-[48px] w-[982px] rounded-t-[20px] bg-blue-1 pl-6 pt-2'>
                 <h1 className='text-[24px] font-semibold text-white '>Flight</h1>
             </div>
+
             <div className='ml-[20px] mt-[25px] flex '>
                 <form>
                     <div className=''>
@@ -53,12 +56,17 @@ export default function FormFlightAdd(onClick) {
                             <label htmlFor='DerpartureDate' className='mb-[6px] text-[16px] font-bold text-blue-1 '>
                                 Derparture Date
                             </label>
-                            <input
+                            {/* <input
                                 type='DerpartureDate'
                                 id='DerpartureDate'
                                 className='mt-[4px] w-full rounded-[5px] border border-gray-300 bg-gray-50 p-2.5 text-gray-900 sm:text-sm'
                                 placeholder='Super Air Jet'
                                 required=''
+                            /> */}
+
+                            <input
+                                className='mt-[4px] w-full rounded-[5px] border border-gray-300 bg-gray-50 p-2.5 text-gray-900 sm:text-sm'
+                                type='date'
                             />
                         </div>
                         <div className='mb-[44px] h-[42px] w-[408px]'>
@@ -66,19 +74,20 @@ export default function FormFlightAdd(onClick) {
                                 Derparture Time
                             </label>
                             <input
-                                type='DerpartureTime'
+                                type='time'
                                 id='DerpartureTime'
                                 className='mt-[4px] w-full rounded-[5px] border border-gray-300 bg-gray-50 p-2.5 text-gray-900 sm:text-sm'
                                 placeholder='10:00'
                                 required=''
                             />
+                            
                         </div>
                         <div className='mb-[44px] h-[42px] w-[408px]'>
                             <label htmlFor='ArrivalDate' className='mb-[6px] text-[16px] font-bold text-blue-1 '>
                                 Arrival Date
                             </label>
                             <input
-                                type='ArrivalDate'
+                                type='date'
                                 id='ArrivalDate'
                                 className='mt-[4px] w-full rounded-[5px] border border-gray-300 bg-gray-50 p-2.5 text-gray-900 sm:text-sm'
                                 placeholder='12/12/2023'
@@ -90,7 +99,7 @@ export default function FormFlightAdd(onClick) {
                                 Arrival Time
                             </label>
                             <input
-                                type='ArrivalTime'
+                                type='time'
                                 id='ArrivalTime'
                                 className='mt-[4px] w-full rounded-[5px] border border-gray-300 bg-gray-50 p-2.5 text-gray-900 sm:text-sm'
                                 placeholder='10:00'

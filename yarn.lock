@@ -1279,6 +1279,13 @@ flatted@^3.1.0:
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.2.7.tgz"
   integrity sha512-5nqDSxl8nn5BSNxyR3n4I6eDmbolI6WT+QqR547RwxQapgjQBmtktdP+HTBb/a/zLsbzERTONyUB5pefh5TtjQ==
 
+flowbite-datepicker@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/flowbite-datepicker/-/flowbite-datepicker-1.2.2.tgz#b3430ef6077d17c9bc4792c592587365eb4e289e"
+  integrity sha512-qOKDVtwkiOa0RrhD3sRtT45H8efAtyLiswuFIAV0UBhWSRYonzL0g1gAZwHiRRKtSmbET/8RQpQXlSEmAgadkg==
+  dependencies:
+    flowbite "^1.4.5"
+
 flowbite-react@^0.4.7:
   version "0.4.9"
   resolved "https://registry.npmjs.org/flowbite-react/-/flowbite-react-0.4.9.tgz"
@@ -1290,7 +1297,7 @@ flowbite-react@^0.4.7:
     react-indiana-drag-scroll "^2.2.0"
     tailwind-merge "^1.13.2"
 
-flowbite@^1.6.5, flowbite@^1.6.6:
+flowbite@^1.4.5, flowbite@^1.6.5, flowbite@^1.6.6:
   version "1.6.6"
   resolved "https://registry.npmjs.org/flowbite/-/flowbite-1.6.6.tgz"
   integrity sha512-T+IaFikHELo1PBKfT/axDqhAmKQLfm/dxVch2r07TZ+IcKwkorZjzwkVuw3OslTETniRIUf2qQvEhxk3bQCaew==

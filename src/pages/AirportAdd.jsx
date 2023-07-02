@@ -1,12 +1,20 @@
 'use client';
 
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
+
+import axios from 'axios';
+
 import FormAirportAdd from '@/components/FormAirportAdd';
 import Aside from '@/components/Aside';
 import TopComponent from '@/components/TopComponent';
-import { useState } from 'react';
 
 export default function AirportAdd() {
+    
+    const [fetchAirlines, setFetchAirlines] = useState(true);
+    const [airlines, SetAirlines] = useState([]);
+
+
     return (
         <section className='h-full w-full bg-grey-2  '>
             <nav className=''>

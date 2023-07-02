@@ -37,9 +37,7 @@ export default function AirlineAdd() {
                             </div>
                             <div className='mt-[24px]'>
                                 <FormAirlineAdd />
-                                {/* <div className='ml-[800px] mt-[95px] '>
-                                    <ButtonSimpan />
-                                </div> */}
+                               
                             </div>
                         </div>
                     </div>
