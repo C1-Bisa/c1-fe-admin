@@ -1,7 +1,6 @@
 'use client';
 
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import axios from 'axios';
 
@@ -9,9 +8,8 @@ import ButtonSubmit from '@/components/ButtonSubmit';
 
 export default function FormAirlineAdd() {
     const [airline, setAirline] = useState({
-        airline_code: "",
-        airline_name: "",
-        
+        airline_code: '',
+        airline_name: '',
     });
 
     const handleAirline = (event) => {
@@ -26,58 +24,30 @@ export default function FormAirlineAdd() {
                 airline_name: airline.airline_name,
             };
 
+            if (!airline.airline_code || !airline.airline_name) {
+                console.log('Field harus diisi semua!');
+                return;
+            }
+
             const token =
                 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJuYW1hIjoiYWRtaW4iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2ODgzMjk1NzgsImV4cCI6MTY4ODUwMjM3OH0.pi_GiBwEDg-p67aAEB4pncjuw7sHFq1jmQDsk8e1VuQ';
 
-            const url = 'https://kel1airplaneapi-production.up.railway.app/api/v1/airline';
+            const URL_POST = 'https://kel1airplaneapi-production.up.railway.app/api/v1/airline';
 
-
-            const response = await axios.post(url,dataForm, {
-
-                // airline_code,
-                // airline_name,
-                
-                // airline_code: airline.airline_code,
-                // airline_name: airline.airline_name,
-                
+            const response = await axios.post(URL_POST, dataForm, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
             });
             console.log(response.data);
-            console.log('============== DATA SUKSES DI TAMBAH =============');
+            console.log('============== SUBMIT SUCCESS =============');
 
             return response.data;
         } catch (error) {
-            console.log('============== GAGAL =============');
+            console.log('============== SUBMIT ERROR =============');
             console.log(error);
         }
     };
-
-    // const handleAdd = async (event) => {
-    //     event.preventDefault();
-    //     try {
-    //         if (!airline.airline_code || !airline.airline_name) {
-    //             // handleVisibleAlert('Field harus diisi semua!', 'failed');
-    //             return;
-    //         }
-    //         const templateObj = {
-    //             airline_code: airline.airline_code,
-    //             airline_name: airline.airline_name,
-    //         };
-    //         const res = await handleSubmit(templateObj);
-
-    //         if (res.status === 'Success') {
-    //             let id = res.data.airline.id;
-    //             // let emails = res.data.user.email;
-    //             // emails: res.data.user.email,
-
-    //             // router.push(`otp/${id}/${emails}`);
-    //         }
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // };
 
     return (
         <div className='h-[420px]  w-[989px] bg-white  font-poppins'>
@@ -92,10 +62,9 @@ export default function FormAirlineAdd() {
                                 Kode Airline
                             </label>
                             <input
-                                // id='airline_code'
+                                id='airline_code'
                                 name='airline_code'
-                                // value={airlineData.airline_code}\
-                                // type='text'
+                                type='text'
                                 value={airline.airline_code}
                                 onChange={handleAirline}
                                 className='mt-[4px] w-full rounded-[5px] border border-gray-300 bg-gray-50  p-2.5 text-gray-900 sm:text-sm '
@@ -108,10 +77,9 @@ export default function FormAirlineAdd() {
                                 Nama Airline
                             </label>
                             <input
-                                // id='airline_name'
+                                id='airline_name'
                                 name='airline_name'
-                                // value={airlineData.airline_name}
-                                // type='text'
+                                type='text'
                                 value={airline.airline_name}
                                 onChange={handleAirline}
                                 className='mt-[4px] w-full rounded-[5px] border border-gray-300 bg-gray-50  p-2.5 text-gray-900 sm:text-sm'
@@ -121,13 +89,7 @@ export default function FormAirlineAdd() {
                         </div>
 
                         <div className='ml-[800px] mt-[150px]'>
-                            <button type='submit'>Submit</button>
-                            {/* <ButtonSubmit
-                                type='submit'
-                                // prefix={'Sudah Punya Akun?'}
-                                // suffix={'Masuk Disini'}
-                                // onClick={() => router.push('/login')}
-                            /> */}
+                            <ButtonSubmit />
                         </div>
                     </div>
                 </form>
