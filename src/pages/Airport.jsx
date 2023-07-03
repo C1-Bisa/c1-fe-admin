@@ -12,109 +12,68 @@ import TableAirport from '@/components/TabelAirport';
 import Aside from '@/components/Aside';
 import TopComponent from '@/components/TopComponent';
 import ButtonAdd from '@/components/ButtonAdd';
-import ButtonSimpan from '@/components/ButtonSimpan';
 // import ButtonBack from '../../public/images/back.svg';
 
 export default function Airport() {
+    //state
     const [fetchAirport, setFetchAirport] = useState(true);
-    const [airport, setAirports] = useState([]);
+    const [airports, setAirports] = useState([]);
     const [chooseAirport, setChooseAirpot] = useState([null]);
     const [openModal, setOpenModal] = useState(false);
-    const [airportData, setAirportData] = useState({
+    const [airport, setAirport] = useState({
         airport_code: '',
         airport_name: '',
         airport_location: '',
     });
-    const handleVisibleAlert = (text, alertType) => {
-        setAlertText(text);
-        setAlertType(alertType);
-        setVisibleAlert(!visibleAlert);
+
+    const handleAirport = (event) => {
+        setAirport({ ...airport, [event.target.name]: event.target.value });
     };
 
-    const handleAirportData = (event) => {
-        setAirportData({ ...airportData, [event.target.name]: event.target.value });
-    };
-
-    const handleClickAirport = (data) => {
-        console.log('====================================');
-        console.log('DATA FLIGHT', data);
-        console.log('====================================');
-        setChooseAirpot(data); // taro data ke local state
-    };
-
-    // const handleUpdateAirport = () => {
-    //     const idAirport = chooseAirport.id;
-
-    //     const URL_UPDATE = `https://kel1airplaneapi-production.up.railway.app/api/v1/airport, post`;
-    // };
-
-    // const handleRegis = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         if (!regisData.airport_code || !regisData.airport_name || !regisData.airport_location) {
-    //             handleVisibleAlert('Field harus diisi semua!', 'failed');
-    //             return;
-    //         }
-    //         const templateObj = {
-    //             airport_code: regisData.airport_code,
-    //             airport_name: regisData.airport_name,
-    //             airport_location: regisData.airport_location,
-    //             // password: regisData.password,
-    //         };
-    //         const res = await handleUpdateAirport(templateObj);
-
-    //         if (res.status === 'Success') {
-    //             let id = res.data.user.id;
-    //             let airport_codes = res.data.user.airport_codes;
-    //             // emails: res.data.user.email,
-    //         }
-    //     } catch (error) {
-    //         console.log(error.message);
-    //     }
-    // };
-
-    const addData = async ({ airport_code, airport_name, airport_location }) => {
+    const handleSubmit = async (event) => {
+        event.preventDefault();
         try {
-            const URL = 'https://kel1airplaneapi-production.up.railway.app/api/v1/airport';
-            const res = await axios.post(URL, {
-                airport_code,
-                airport_name,
-                airport_location,
-            });
-            handleVisibleAlert(res.data.message, 'success');
-            // console.log(res.data);
-            return res.data;
-        } catch (error) {
-            const text = error.response.data.message;
-            handleVisibleAlert(text, 'failed');
-        }
-    };
-
-    const handleRegis = async (e) => {
-        e.preventDefault();
-        try {
-            if (!airportData.airport_code || !airportData.airport_name || !airportData.airport_location) {
-                handleVisibleAlert('Field harus diisi semua!', 'failed');
-                return;
-            }
-            const templateObj = {
-                name: airportData.airport_code,
-                email: airportData.airport_name,
-                phone: airportData.airport_location,
-                // password: regisData.password,
+            const dataForm = {
+                airport_code: airport.airport_code,
+                airport_name: airport.airport_name,
+                airport_location: airport.airport_location,
             };
-            const res = await addData(templateObj);
 
-            if (res.status === 'Success') {
-                let id = res.data.user.id;
-                let emails = res.data.user.email;
-                // emails: res.data.user.email,
-            }
+            const token =
+                'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJuYW1hIjoiYWRtaW4iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2ODgzMjk1NzgsImV4cCI6MTY4ODUwMjM3OH0.pi_GiBwEDg-p67aAEB4pncjuw7sHFq1jmQDsk8e1VuQ';
+
+            const url = 'https://kel1airplaneapi-production.up.railway.app/api/v1/airport';
+            const response = await axios.post(url, dataForm, {
+                // airline_code,
+                // airline_name,
+
+                // airport_code: airport.airport_code,
+                // airport_name: airport.airport_name,
+                // airport_location: airport.airport_location,
+
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            console.log(response.data);
+            console.log('============== Data Berhasil Ditambahkan =============');
+
+            return response.data;
         } catch (error) {
-            console.log(error.message);
+            console.log('============== GAGAL =============');
+            console.log(error);
         }
     };
+    // const [fetchAirport, setFetchAirport] = useState(true);
 
+    // //setup
+    // useEffect(() => {
+    //     if (fetchAirport) {
+    //     }
+    //     setFetchAirport(false);
+    // }, [fetchAirport]);
+
+    //setup
     useEffect(() => {
         if (fetchAirport) {
             const getAirport = async () => {
@@ -147,12 +106,12 @@ export default function Airport() {
     }, [fetchAirport]);
 
     console.log('====================================');
-    console.log('AIRPORTR', airport);
+    console.log('AIRPORTR', airports);
     console.log('====================================');
 
     return (
-        <section className='bg-grey-2 h-[950px] w-[1440px]  '>
-            <div className=''>
+        <section className='h-[950px] w-[1440px] bg-grey-2  '>
+            <nav className=''>
                 <div className='flex '>
                     {/* SIDEBAR */}
                     <div className=' '>
@@ -189,67 +148,66 @@ export default function Airport() {
                                 </div>
                             </div>
                             <div className='mt-[24px]'>
-                                <TableAirport airport={airport} handleClickAirport={handleClickAirport} />
+                                <TableAirport airports={airports} />
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </nav>
 
             {openModal && (
                 <div className='fixed inset-0 flex items-center justify-center bg-black bg-opacity-60'>
                     <div className='h-[600px] w-[600px] bg-white'>
                         <div className='h-[420px]  w-[989px] bg-white  font-poppins'>
                             <div className='h-[48px] w-[982px] rounded-t-[20px] bg-blue-1 pl-6 pt-2'>
-                                <h1 className='text-[24px] font-semibold text-white'>Airline</h1>
+                                <h1 className='text-[24px] font-semibold text-white'>Airport</h1>
                             </div>
                             <div className='ml-[20px] mt-[10px] flex '>
-                                <form onSubmit={handleRegis}>
+                                <form onSubmit={handleSubmit}>
                                     <div className=''>
                                         <div className='mb-[44px] h-[42px] w-[408px]'>
-                                            <label htmlFor='airlineID' className='mb-[6px] text-[16px] font-bold text-blue-1 '>
-                                                Kode Airline
+                                            <label htmlFor='airport_code' className='mb-[6px] text-[16px] font-bold text-blue-1 '>
+                                                Kode Airport
                                             </label>
                                             <input
-                                                type='airlineID'
-                                                id='airline_code'
+                                                type='text'
+                                                name='airport_code'
                                                 className='mt-[4px] w-full rounded-[5px] border border-gray-300 bg-gray-50  p-2.5 text-gray-900 sm:text-sm '
-                                                placeholder='SJA'
+                                                placeholder='CGK'
                                                 required=''
-                                                // value={airportData.airport_code}
-                                                onChange={handleAirportData}
+                                                onChange={handleAirport}
                                             />
                                         </div>
                                         <div className='mb-[44px] h-[42px] w-[408px] '>
-                                            <label htmlFor='AirportIDFrom' className='mb-[6px] text-[16px] font-bold text-blue-1 '>
-                                                Nama Airline
+                                            <label htmlFor='airport_name' className='mb-[6px] text-[16px] font-bold text-blue-1 '>
+                                                Nama Airport
                                             </label>
                                             <input
-                                                type='AirportIDFrom'
-                                                id='airport_name'
+                                                type='text'
+                                                name='airport_name'
                                                 className='mt-[4px] w-full rounded-[5px] border border-gray-300 bg-gray-50  p-2.5 text-gray-900 sm:text-sm'
-                                                placeholder='Super Jet Airline'
+                                                placeholder='Soekarno-Hatta'
                                                 required=''
-                                                // value={airportData.airport_name}
-                                                onChange={handleAirportData}
+                                                onChange={handleAirport}
                                             />
                                         </div>
                                         <div className='mb-[44px] h-[42px] w-[408px] '>
-                                            <label htmlFor='AirportIDFrom' className='mb-[6px] text-[16px] font-bold text-blue-1 '>
-                                                Location
+                                            <label
+                                                htmlFor='airport_location'
+                                                className='mb-[6px] text-[16px] font-bold text-blue-1 '>
+                                                Lokasi
                                             </label>
                                             <input
-                                                type='AirportIDFrom'
-                                                id='airport_location'
+                                                type='text'
+                                                name='airport_location'
                                                 className='mt-[4px] w-full rounded-[5px] border border-gray-300 bg-gray-50  p-2.5 text-gray-900 sm:text-sm'
                                                 placeholder='Jakarta'
                                                 required=''
-                                                // value={airportData.airport_location}
-                                                onChange={handleAirportData}
+                                                onChange={handleAirport}
                                             />
                                         </div>
                                         <button
-                                            type='button'
+                                            type='submit'
                                             className='h-[43px] w-[110px] rounded-full  bg-blue-1 text-white hover:bg-blue-1/90 hover:text-white '>
                                             <div className='align-center flex justify-center '>
                                                 <p className='m-[10px]'>Submit</p>
