@@ -12,19 +12,18 @@ import ButtonAdd from '@/components/ButtonAdd';
 
 export default function Airline() {
     const [fetchAirlines, setFetchAirlines] = useState(true);
-    const [airlines, SetAirlines] = useState([]);
+    const [airline, SetAirline] = useState([]);
 
     useEffect(() => {
         if (fetchAirlines) {
             const getAirlines = async () => {
                 try {
-                    
                     const URL_AIRLINE = 'https://kel1airplaneapi-production.up.railway.app/api/v1/airline';
 
                     const response = await axios.get(URL_AIRLINE);
         
                     const airlineData = response.data.data.airline;
-                    SetAirlines(airlineData);
+                    SetAirline(airlineData);
                 } catch (error) {
                     console.log('ERROR AIRLINE', error);
                 }
@@ -64,7 +63,7 @@ export default function Airline() {
                                 </div>
                             </div>
                             <div className='mt-[24px]'>
-                                <TableAirline airlines ={airlines}/>
+                                <TableAirline airline ={airline}/>
                             </div>
                         </div>
                     </div>

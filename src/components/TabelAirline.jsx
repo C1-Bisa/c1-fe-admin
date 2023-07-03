@@ -2,8 +2,7 @@
 
 import Image from 'next/image';
 
-export default function TableAirline({ airlines }) {
-
+export default function TableAirline({ airline}) {
     return (
         <nav className='flex w-[920px]  border-b border-gray-200 bg-white shadow-md sm:rounded-lg'>
             <div className=''>
@@ -27,8 +26,8 @@ export default function TableAirline({ airlines }) {
                                 </tr>
                             </thead>
                             <tbody>
-                                {airlines.length ? (
-                                    airlines.map((airline, index) => {
+                                {airline.length ? (
+                                    airline.map((airline, index) => {
                                         return (
                                             <tr key={index} className='border-b text-center text-[14px] font-normal text-black '>
                                                 <td className='whitespace-nowrap px-6 py-4'>{index + 1}</td>
@@ -37,6 +36,8 @@ export default function TableAirline({ airlines }) {
                                                 <td className='items-center whitespace-nowrap py-4 pl-[135px] '>
                                                     <div className=' flex w-[24px] space-x-[12px] whitespace-nowrap'>
                                                         <Image
+                                                            
+                                                            // onClick={() => handleClickAirline(airline)}
                                                             width={24}
                                                             height={24}
                                                             className='cursor-pointer hover:scale-110 hover:text-blue-1 '

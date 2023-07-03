@@ -10,7 +10,7 @@ import { useState } from 'react';
 export default function AirlineUpdate() {
     return (
         <section className='h-full w-full bg-grey-2  '>
-            <nav className=''>
+            <div className=''>
                 <div className='flex '>
                     {/* SIDEBAR */}
                     <div className=' '>
@@ -42,7 +42,7 @@ export default function AirlineUpdate() {
                         </div>
                     </div>
                 </div>
-            </nav>
+            </div>
         </section>
     );
 }

@@ -8,38 +8,44 @@ import axios from 'axios';
 import ButtonSubmit from '@/components/ButtonSubmit';
 
 export default function FormAirlineAdd() {
-
-    
     const [airline, setAirline] = useState({
-        airline_code: '',
-        airline_name: '',
+        airline_code: "",
+        airline_name: "",
+        
     });
 
     const handleAirline = (event) => {
         setAirline({ ...airline, [event.target.name]: event.target.value });
     };
 
-
-    const handleSubmit = async (event) => { 
+    const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const token =
-                'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJuYW1hIjoiYWRtaW4iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2ODc5NjA0NTYsImV4cCI6MTY4ODEzMzI1Nn0.v_ktm7kT1I5q_zMQXusG5jvLkW5e9IEz6bvQIb99DH4';
-
-            const url = 'https://kel1airplaneapi-production.up.railway.app/api/v1/airline';
-            const response = await axios.post(url, {
-                // airline_code,
-                // airline_name,
-
+            const dataForm = {
                 airline_code: airline.airline_code,
                 airline_name: airline.airline_name,
+            };
 
+            const token =
+                'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJuYW1hIjoiYWRtaW4iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2ODgzMjk1NzgsImV4cCI6MTY4ODUwMjM3OH0.pi_GiBwEDg-p67aAEB4pncjuw7sHFq1jmQDsk8e1VuQ';
+
+            const url = 'https://kel1airplaneapi-production.up.railway.app/api/v1/airline';
+
+
+            const response = await axios.post(url,dataForm, {
+
+                // airline_code,
+                // airline_name,
+                
+                // airline_code: airline.airline_code,
+                // airline_name: airline.airline_name,
+                
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
             });
             console.log(response.data);
-            console.log('sukses');
+            console.log('============== SUKSES =============');
 
             return response.data;
         } catch (error) {
@@ -89,7 +95,7 @@ export default function FormAirlineAdd() {
                                 // id='airline_code'
                                 name='airline_code'
                                 // value={airlineData.airline_code}\
-                                type='text'
+                                // type='text'
                                 value={airline.airline_code}
                                 onChange={handleAirline}
                                 className='mt-[4px] w-full rounded-[5px] border border-gray-300 bg-gray-50  p-2.5 text-gray-900 sm:text-sm '
@@ -105,7 +111,7 @@ export default function FormAirlineAdd() {
                                 // id='airline_name'
                                 name='airline_name'
                                 // value={airlineData.airline_name}
-                                type='text'
+                                // type='text'
                                 value={airline.airline_name}
                                 onChange={handleAirline}
                                 className='mt-[4px] w-full rounded-[5px] border border-gray-300 bg-gray-50  p-2.5 text-gray-900 sm:text-sm'

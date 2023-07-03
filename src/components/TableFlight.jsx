@@ -2,8 +2,7 @@
 
 import Image from 'next/image';
 
-export default function TableFlight({ flight }) {
-    
+export default function TableFlight({ flight, handleClickFlight }) {
     return (
         <nav className='w-[1070px] overflow-x-auto border-b border-gray-200 bg-white shadow-md sm:rounded-lg'>
             <div className='overflow-x-auto overflow-y-auto'>
@@ -68,7 +67,9 @@ export default function TableFlight({ flight }) {
                                 {flight.length ? (
                                     flight.map((flight, index) => {
                                         return (
-                                            <tr className='border-b bg-white text-center text-[14px] font-normal text-black '>
+                                            <tr
+                                                key={index}
+                                                className='border-b bg-white text-center text-[14px] font-normal text-black '>
                                                 <td className='whitespace-nowrap px-[27px] py-4'>{index + 1}</td>
                                                 <td className='whitespace-nowrap px-[27px] py-4'>
                                                     {flight.Airline.airline_name}
@@ -94,6 +95,7 @@ export default function TableFlight({ flight }) {
                                                 <td className='justify-center whitespace-nowrap px-[27px] py-4 '>
                                                     <div className=' flex w-[24px] space-x-[12px] whitespace-nowrap'>
                                                         <Image
+                                                            onClick={() => handleClickFlight(flight)}
                                                             width={24}
                                                             height={24}
                                                             className='cursor-pointer hover:scale-110 hover:text-blue-1 '
