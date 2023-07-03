@@ -45,7 +45,7 @@ export default function FormAirlineAdd() {
                 },
             });
             console.log(response.data);
-            console.log('============== SUKSES =============');
+            console.log('============== DATA SUKSES DI TAMBAH =============');
 
             return response.data;
         } catch (error) {
