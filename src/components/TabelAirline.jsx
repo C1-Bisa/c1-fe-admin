@@ -41,6 +41,7 @@ export default function TableAirline({ airlines, handleClickAirline, handleClick
                                                             height={24}
                                                             className='cursor-pointer hover:scale-110 hover:text-blue-1 '
                                                             src={`./images/Pencil.svg`}
+                                                            alt='edit'
                                                             
                                                         />
                                                         <Image
@@ -49,6 +50,7 @@ export default function TableAirline({ airlines, handleClickAirline, handleClick
                                                             height={24}
                                                             className='cursor-pointer hover:scale-110 hover:text-blue-1 '
                                                             src={`./images/trash.svg`}
+                                                            alt="delete"
                                                           
                                                         />
                                                     </div>
