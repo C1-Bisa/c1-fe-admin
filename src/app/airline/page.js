@@ -14,6 +14,7 @@ export default function Airline() {
     const router = useRouter();
 
     const [isLoading, setIsLoading] = useState(true);
+    const [changeData, setChangeData] = useState(false);
     const [fetchAirlines, setFetchAirlines] = useState(true);
     const [airlines, SetAirlines] = useState([]);
     const [chooseAirline, setChooseAirline] = useState(null);
@@ -30,7 +31,7 @@ export default function Airline() {
     }, []);
 
     const handleAirlineData = (event) => {
-        setAirlineData({ ...airlineData, [event.target.name]: event.target.defaultValue });
+        setAirlineData({ ...airlineData, [event.target.name]: event.target.value });
     };
 
     const handleClickAirline = (data) => {
@@ -72,8 +73,20 @@ export default function Airline() {
             console.log(response.data);
 
             console.log('============== UPDATE DATA SUCCESS =============');
-            console.log(dataForm);
+            // console.log(dataForm);
+            setOpenModal(false);
             return response.data;
+           
+
+            // if (res.status == 200 || res.data.status == 'OK') {
+            //     // handleVisibleAlert('Berhasil mengubah profil!', 'success');
+            //     console.log('Berhasil mengubah profil!', 'success');
+            //     setIsLoading(true);
+            //     setFetchAirlines(true);
+            //     setChangeData(false);
+            // }
+
+
         } catch (error) {
             console.log('============== UPDATE DATA ERROR =============');
             console.log(error);
@@ -97,55 +110,24 @@ export default function Airline() {
                 airline_name: chooseAirline.airline_name,
             };
 
-            // const token =
-            //     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJuYW1hIjoiYWRtaW4iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2ODgzMjk1NzgsImV4cCI6MTY4ODUwMjM3OH0.pi_GiBwEDg-p67aAEB4pncjuw7sHFq1jmQDsk8e1VuQ';
+            const token =
+                'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJuYW1hIjoiYWRtaW4iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2ODg2MTI1NTEsImV4cCI6MTY4ODc4NTM1MX0.hC89EcuiXlPjcDlJYMMEFV7DFzQ4Y3zkdgpXczMnb30';
 
-            // const URL_UPDATE = `https://kel1airplaneapi-production.up.railway.app/api/v1/airline/${idAirline}`;
-            // const response = await axios.delete(URL_UPDATE, {
-            //     headers: {
-            //         Authorization: `Bearer ${token}`,
-            //     },
-            // });
-            // console.log(response.data);
+            const URL_UPDATE = `https://kel1airplaneapi-production.up.railway.app/api/v1/airline/${idAirline}`;
+            const response = axios.delete(URL_UPDATE, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            });
+            console.log(response.data);
             console.log('============== DELETE DATA SUCCESS =============');
             console.log('Data yang di delete', dataForm);
+            return response.data;
         } catch (error) {
             console.log('============== DELETE DATA ERROR =============');
             console.log(error);
         }
     };
-
-    // const handleDeleteAirline = async (event) => {
-    //     event.preventDefault();
-
-    //     try {
-    //         const idAirline = chooseAirline.id;
-    //         console.log('====================================');
-    //         console.log('ID AIRLINE YANG AKAN DIDELETE', idAirline);
-    //         console.log('====================================');
-
-    //         const dataForm = {
-    //             airline_code: chooseAirline.airline_code,
-    //             airline_name: chooseAirline.airline_name,
-    //         };
-
-    //         // const token =
-    //         //     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJuYW1hIjoiYWRtaW4iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2ODgzMjk1NzgsImV4cCI6MTY4ODUwMjM3OH0.pi_GiBwEDg-p67aAEB4pncjuw7sHFq1jmQDsk8e1VuQ';
-
-    //         // const URL_UPDATE = `https://kel1airplaneapi-production.up.railway.app/api/v1/airline/${idAirline}`;
-    //         // const response = await axios.delete(URL_UPDATE, {
-    //         //     headers: {
-    //         //         Authorization: `Bearer ${token}`,
-    //         //     },
-    //         // });
-    //         // console.log(response.data);
-    //         console.log('============== DELETE DATA SUCCESS =============');
-    //         console.log('Data yang di delete', dataForm);
-    //     } catch (error) {
-    //         console.log('============== DELETE DATA ERROR =============');
-    //         console.log(error);
-    //     }
-    // };
 
     const closeModal = () => {
         setOpenModal(false);
@@ -184,16 +166,13 @@ export default function Airline() {
                                 <div>
                                     <div className='flex'>
                                         <h1 className=' text-[32px] font-bold text-blue-1 '>Airline</h1>
-                                        <div className='ml-[262px]'>
-                                            <TopComponent />
-                                        </div>
+                                        <div className='ml-[262px]'>{/* <TopComponent /> */}</div>
                                     </div>
                                 </div>
                             </div>
                             {/* TABLE */}
                             <div className='ml-[351px] mt-[120px] '>
                                 <div className='flex items-center'>
-                                    {/* <img className='' src={`./images/back.svg`} alt='' /> */}
                                     <h1 className='ml-[px] text-[21px] font-bold text-blue-1 '>Data Airline</h1>
                                     <div onClick={() => router.push('/airline.new')} className='ml-[670px]' alt=''>
                                         <ButtonAdd />
@@ -224,16 +203,17 @@ export default function Airline() {
                                 </div>
                                 <form onSubmit={handleUpdateAirline}>
                                     <div className='ml-4 mt-5'>
-                                        <label htmlFor='airline_code' className='mb-[6px] text-[16px] font-bold text-blue-1 '>
+                                        <label htmlFor={'airline_code'} className='mb-[6px] text-[16px] font-bold text-blue-1 '>
                                             Kode Airline
                                         </label>
                                         <input
                                             id={'airline_code'}
                                             type='text'
-                                            name='airline_code'
+                                            name={'airline_code'}
                                             // value={airlineData.airline_code}
                                             // value={isLoading ? 'Sedang menload data...' : chooseAirline.airline_code}
-                                            // defaultValue={chooseAirline.airline_code}
+                                            // disabled={!changeData}
+                                            defaultValue={chooseAirline.airline_code}
                                             onChange={handleAirlineData}
                                             className='mt-[4px] w-full rounded-[5px] border border-gray-300 bg-gray-50  p-2.5 text-gray-900 sm:text-sm '
                                             placeholder='SJA'
@@ -241,16 +221,17 @@ export default function Airline() {
                                         />
                                     </div>
                                     <div className='ml-4 mt-5'>
-                                        <label htmlFor='airline_name' className='mb-[6px] text-[16px] font-bold text-blue-1 '>
+                                        <label htmlFor={'airline_name'} className='mb-[6px] text-[16px] font-bold text-blue-1 '>
                                             Nama Airline
                                         </label>
                                         <input
                                             id={'airline_name'}
-                                            name='airline_name'
+                                            name={'airline_name'}
                                             type='text'
                                             // value={airlineData.airline_name}
                                             // value={isLoading ? 'Sedang menload data...' : chooseAirline.airline_name}
-                                            // defaultValue={chooseAirline.airline_name}
+                                            // disabled={!changeData}
+                                            defaultValue={chooseAirline.airline_name}
                                             onChange={handleAirlineData}
                                             className='mt-[4px] w-full rounded-[5px] border border-gray-300 bg-gray-50  p-2.5 text-gray-900 sm:text-sm'
                                             placeholder='Super Jet Airline'

@@ -229,7 +229,7 @@ export default function Flight() {
                                     <div className='flex '>
                                         <h1 className=' text-[32px] font-bold text-blue-1 '>Flight</h1>
                                         <div className='ml-[262px]'>
-                                            <TopComponent />
+                                            {/* <TopComponent /> */}
                                         </div>
                                     </div>
                                 </div>

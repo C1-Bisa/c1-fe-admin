@@ -7,7 +7,7 @@ import ButtonSubmit from '@/components/ButtonSubmit';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function FormAirlineAdd(onClick) {
+export default function FormAirlineAdd() {
     const router = useRouter();
     const [isMounted, setIsMounted] = useState(false);
     const [airline, setAirline] = useState({
@@ -45,6 +45,7 @@ export default function FormAirlineAdd(onClick) {
             console.log(response.data);
             console.log('============== SUBMIT SUCCESS =============');
 
+            router.push('/airline')
             return response.data;
         } catch (error) {
             console.log('============== SUBMIT ERROR =============');
@@ -96,7 +97,7 @@ export default function FormAirlineAdd(onClick) {
                         </div>
 
                         <div className='ml-[800px] mt-[150px]'>
-                            <ButtonSubmit onClick={() => router.push('/airline')} />
+                            <ButtonSubmit />
                         </div>
                     </div>
                 </form>

@@ -20,9 +20,9 @@ export default function Aside(onClick) {
                         <span className='self-center whitespace-nowrap mt-[1.8px] text-[36px] font-bold text-neutral-1'>Admin FL.id</span>
                     </div>
                     <ul className='space-y-[26px] mt-[60px] ml-[36px] font-[18px] '>
-                        <li onClick={() => router.push("/dashboard")} >
+                        {/* <li onClick={() => router.push("/dashboard")} >
                             <div className='flex items-center rounded-full rounded-r-lg px-4 p-2 text-white hover:bg-neutral-1 dark:text-white dark:hover:bg-white'>
-                                {/* <Image src={`./images/home.svg`} width={'34'} height={'34'} className='text-purple-6' /> */}
+                               
                                 <div className='cursor-pointer flex flex-row text-white hover:text-blue-1  '>
                                     <FiHome className=' h-6 w-6' />
                                     <span className='ml-[24px] '>
@@ -30,7 +30,7 @@ export default function Aside(onClick) {
                                     </span>
                                 </div>
                             </div>
-                        </li>
+                        </li> */}
                         <li onClick={() => router.push("/airline")}>
                             <div className='flex items-center rounded-full rounded-r-lg px-4 p-2 text-gray-900 hover:bg-neutral-1 dark:text-white dark:hover:bg-white'>
                                 {/* <Image src={`./images/home.svg`} width={'24'} height={'24'} className='text-purple-6' /> */}
@@ -64,9 +64,9 @@ export default function Aside(onClick) {
                                 </div>
                             </div>
                         </li>
-                        <li onClick={() => router.push("/transaction")}>
+                        {/* <li onClick={() => router.push("/transaction")}>
                             <div className='flex items-center rounded-full rounded-r-lg px-4 p-2 text-gray-900 hover:bg-neutral-1 dark:text-white dark:hover:bg-white'>
-                                {/* <Image src={`./images/home.svg`} width={'24'} height={'24'} className='text-purple-6' /> */}
+                                
                                 <div className='cursor-pointer flex flex-row text-white hover:text-blue-1 '>
                                     <FiFile className=' h-6 w-6' />
                                     <span className='ml-[24px]'>
@@ -74,7 +74,7 @@ export default function Aside(onClick) {
                                     </span>
                                 </div>
                             </div>
-                        </li>
+                        </li> */}
                         <li onClick={() => router.push("/user")}>
                             <div className='flex items-center rounded-full rounded-r-lg px-4 p-2 text-gray-900 hover:bg-neutral-1 dark:text-white dark:hover:bg-white'>
                                 {/* <Image src={`./images/home.svg`} width={'24'} height={'24'} className='text-purple-6' /> */}

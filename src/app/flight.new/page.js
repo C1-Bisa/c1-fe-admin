@@ -29,7 +29,7 @@ export default function FlightAdd() {
                                     <div className='flex'>
                                         <h1 className=' text-[32px] font-bold text-blue-1 w-[105px]'>Flight</h1>
                                         <div className='ml-[262px]'>
-                                            <TopComponent />
+                                            {/* <TopComponent /> */}
                                         </div>
                                     </div>
                                 </div>

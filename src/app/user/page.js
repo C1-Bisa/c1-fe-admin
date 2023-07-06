@@ -24,7 +24,7 @@ export default function User() {
             const getUsers = async () => {
                 try {
                     const token =
-                        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJuYW1hIjoiYWRtaW4iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2ODc5NjA0NTYsImV4cCI6MTY4ODEzMzI1Nn0.v_ktm7kT1I5q_zMQXusG5jvLkW5e9IEz6bvQIb99DH4';
+                        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJuYW1hIjoiYWRtaW4iLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE2ODg2MTI1NTEsImV4cCI6MTY4ODc4NTM1MX0.hC89EcuiXlPjcDlJYMMEFV7DFzQ4Y3zkdgpXczMnb30';
                     const URL_USER = 'https://kel1airplaneapi-production.up.railway.app/api/v1/user';
 
                     const response = await axios.get(URL_USER, {
@@ -68,7 +68,7 @@ export default function User() {
                                     <div className=' flex'>
                                         <h1 className=' text-[32px] font-bold text-blue-1 '>User</h1>
                                         <div className='ml-[289px]'>
-                                            <TopComponent />
+                                            {/* <TopComponent /> */}
                                         </div>
                                     </div>
                                 </div>

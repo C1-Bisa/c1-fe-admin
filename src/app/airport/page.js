@@ -132,7 +132,7 @@ export default function Airport() {
                                     <div className='flex'>
                                         <h1 className=' text-[32px] font-bold text-blue-1 '>Airport</h1>
                                         <div className='ml-[262px]'>
-                                            <TopComponent />
+                                            {/* <TopComponent /> */}
                                         </div>
                                     </div>
                                 </div>
