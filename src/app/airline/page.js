@@ -76,7 +76,6 @@ export default function Airline() {
             // console.log(dataForm);
             setOpenModal(false);
             return response.data;
-           
 
             // if (res.status == 200 || res.data.status == 'OK') {
             //     // handleVisibleAlert('Berhasil mengubah profil!', 'success');
@@ -85,8 +84,6 @@ export default function Airline() {
             //     setFetchAirlines(true);
             //     setChangeData(false);
             // }
-
-
         } catch (error) {
             console.log('============== UPDATE DATA ERROR =============');
             console.log(error);
@@ -94,20 +91,20 @@ export default function Airline() {
     };
 
     const handleClickDelete = (data) => {
-        console.log('====================================');
-        console.log('DATA AIRLINE', data);
-        console.log('====================================');
-        setChooseAirline(data); // taro data ke local state
-
+        // console.log('====================================');
+        // console.log('DATA AIRLINE', data);
+        // console.log('====================================');
+        // setChooseAirline(data); // taro data ke local state
+        const DataAirlineDel = data;
         try {
-            const idAirline = chooseAirline.id;
+            const idAirline = DataAirlineDel.id;
             console.log('====================================');
             console.log('ID AIRLINE YANG AKAN DIDELETE', idAirline);
             console.log('====================================');
 
             const dataForm = {
-                airline_code: chooseAirline.airline_code,
-                airline_name: chooseAirline.airline_name,
+                airline_code: DataAirlineDel.airline_code,
+                airline_name: DataAirlineDel.airline_name,
             };
 
             const token =
