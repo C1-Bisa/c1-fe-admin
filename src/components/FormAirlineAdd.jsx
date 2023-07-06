@@ -43,12 +43,12 @@ export default function FormAirlineAdd() {
                 },
             });
             console.log(response.data);
-            console.log('============== SUBMIT SUCCESS =============');
+            console.log('============== SUBMIT DATA SUCCESS =============');
 
             router.push('/airline')
             return response.data;
         } catch (error) {
-            console.log('============== SUBMIT ERROR =============');
+            console.log('============== SUBMIT DATA ERROR =============');
             console.log(error);
         }
     };
