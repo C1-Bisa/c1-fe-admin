@@ -47,7 +47,7 @@ export default function TableAirport({ airports, handleClickAirport,handleClickD
                                                             height={24}
                                                             className='cursor-pointer hover:scale-110 hover:text-blue-1 '
                                                             src={`./images/Pencil.svg`}
-                                                            alt=''
+                                                           
                                                         />
                                                         <Image
                                                         
@@ -56,7 +56,7 @@ export default function TableAirport({ airports, handleClickAirport,handleClickD
                                                             height={24}
                                                             className='cursor-pointer hover:scale-110 hover:text-blue-1 '
                                                             src={`./images/trash.svg`}
-                                                            alt=''
+                                                           
                                                         />
                                                     </div>
                                                 </td>
